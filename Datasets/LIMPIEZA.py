@@ -42,7 +42,7 @@ class LimpiadorCSV:
 
 
 # Uso de la clase
-limpiador = LimpiadorCSV('Datasets/ClaroShop.csv')
+limpiador = LimpiadorCSV('ClaroShop.csv')
 limpiador.eliminar_filas_vacias()
 limpiador.limpiar_precio()
 limpiador.limpiar_descuento()
