@@ -11,7 +11,7 @@ conexion = mysql.connector.connect(
 cursor = conexion.cursor()
 
 # Crea la base de datos
-proyecto = "proyecto"
+proyecto = "proyecto5"
 cursor.execute(f"CREATE DATABASE {proyecto}")
 
 # Cierra el cursor y la conexión
