@@ -6,7 +6,13 @@ class LimpiadorCSV:
         self.df = pd.read_csv(archivo)
 
     def eliminar_filas_vacias(self):
-        self.df = self.df.dropna()
+        # Selecciona todas las columnas excepto 'Comentarios'
+        columnas_a_considerar = self.df.columns.difference(['Comentarios'])
+        # Elimina filas vacía
+        self.df = self.df.dropna(subset=columnas_a_considerar)
+
+    def rellenar_comentarios_vacios(self):
+        self.df['Comentarios'] = self.df['Comentarios'].fillna(0)
 
     def limpiar_precio(self):
         def _limpiar_precio(valor):
@@ -50,8 +56,9 @@ limpiador = LimpiadorCSV('Datasets/ClaroShop.csv')
 limpiador.eliminar_filas_vacias()
 limpiador.limpiar_precio()
 limpiador.limpiar_descuento()
+limpiador.rellenar_comentarios_vacios()  # Rellenar comentarios vacíos con 0
 limpiador.eliminar_parentesis_comentarios()
 limpiador.ordenar_por_producto()
 limpiador.quitar_signo_dolar()
 limpiador.eliminar_duplicados()
-limpiador.guardar_csv('limpios_ClaroShop.csv')
+limpiador.guardar_csv('limpios_ClaroShop100.csv')
