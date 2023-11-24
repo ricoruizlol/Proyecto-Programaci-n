@@ -5,15 +5,15 @@ import mysql.connector
 conexion = mysql.connector.connect(
     host="127.0.0.1",
     user="root",
-    password="030509RR",
-    database="proyecto"
+    password="12345678",
+    database="proyecto5"
 )
 
 # Crea un cursor para ejecutar comandos SQL
 cursor = conexion.cursor()
 
 # Abre el archivo CSV y realiza la inserción de datos
-with open('Datasets/limpios_ClaroShop.csv', 'r') as archivo_csv:
+with open('Datasets/Limpios_ClaroShop.csv', 'r') as archivo_csv:
     lector_csv = csv.reader(archivo_csv)
 
     # Ignora la primera fila si contiene encabezados
